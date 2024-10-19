@@ -1,8 +1,7 @@
 import { useRouter } from "next/navigation";
 
-
-
 export default function Home() {
+
   const route = useRouter()
   return (
 
@@ -16,7 +15,9 @@ export default function Home() {
           onClick={() => route.push('/metrics')}>
           Metrics
         </button>
+        
       </div>
+      
     </div>
   );
 }
