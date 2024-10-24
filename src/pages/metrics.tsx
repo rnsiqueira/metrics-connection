@@ -85,7 +85,7 @@ const Metrics = () => {
       bar: {
         horizontal: true,
         barHeight: 30
-        
+
 
       }
     },
@@ -103,6 +103,28 @@ const Metrics = () => {
         return products.filter((p) => p.name === name).length
       })
     }]
+
+
+  const donetOptions: ApexOptions = {
+    chart: {
+      type: 'donut',
+    },
+    responsive: [{
+      breakpoint: 480,
+      options: {
+        chart: {
+          width: 200
+        },
+        legend: {
+          position: 'bottom'
+        }
+      }
+    }]
+  }
+
+  const seriesDonet = names.map((name) => {
+    return products.filter((p) => p.name === name).length
+  })
 
 
   return (
@@ -171,7 +193,22 @@ const Metrics = () => {
           <Chart options={optionsBar} series={seriesBar} type='bar' />
         </div>
       </main >
-  
+
+
+      <header className="bg-white shadow">
+        <div className="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
+          <h1 className="text-3xl font-bold tracking-tight text-gray-900">Dashboard Dunet</h1>
+        </div>
+      </header>
+      <main>
+        <div>
+
+        </div>
+        <div className="mx-auto max-w-3xl px-4 py-6 sm:px-6 lg:px-8">
+          <Chart options={donetOptions} series={seriesDonet} type='donut' />
+        </div>
+      </main >
+
     </div >
   );
 
