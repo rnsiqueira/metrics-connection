@@ -10,10 +10,19 @@ function removeDuplicates(arr) {
   return arr.filter((item, index) => arr.indexOf(item) === index);
 }
 
+type Product = {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  arrived: string;
+}
 
 const Metrics = () => {
 
-  const [products, setProducts] = useState([]);
+
+
+  const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     request.get('/products').then((response) => {
